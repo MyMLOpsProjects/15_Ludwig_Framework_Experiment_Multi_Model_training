@@ -1,0 +1,38 @@
+# PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+# 1,0,3,"Braund, Mr. Owen Harris",male,22,1,0,A/5 21171,7.25,,S
+input_features:
+    - name: PassengerId
+      type: number
+    - name: Pclass
+      type: category
+      preprocessing:
+        missing_value_strategy: fill_with_mode           
+    - name: Name
+      type: text
+    - name: Sex
+      type: category
+      preprocessing:
+        missing_value_strategy: fill_with_mode      
+    - name: Age
+      type: number
+      preprocessing:
+        missing_value_strategy: fill_with_mean      
+    - name: SibSp
+      type: number
+    - name: Parch
+      type: number
+    - name: Ticket
+      type: text                            
+    - name: Fare
+      type: number 
+      preprocessing:
+        missing_value_strategy: fill_with_mean
+    - name: Cabin
+      type: text 
+    - name: Embarked
+      type: category             
+      preprocessing:
+        missing_value_strategy: fill_with_mode      
+output_features:
+    - name: Survived
+      type: binary
